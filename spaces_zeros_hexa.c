@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spaces_zeros_hexa.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-madi <ael-madi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: airball <airball@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 00:48:02 by ael-madi          #+#    #+#             */
-/*   Updated: 2020/11/12 12:17:27 by ael-madi         ###   ########.fr       */
+/*   Updated: 2020/11/12 18:49:54 by airball          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ void	spaces_zeros_hexa(long int i, t_format *format,
 		*fill_zero = ft_abs(format->prec) - len_nb_hexa(i, format) +
 			(i < 0 && format->prec > 0);
 	}
+	//printf("len_nb_hexa: %d\nfill_zero: %d\n", len_nb_hexa(i, format), *fill_zero);
 	if (ft_abs(format->width) > len_nb_hexa(i, format) + *fill_zero)
 	{
 		*fill_spaces = ft_abs(format->width) - len_nb_hexa(i, format)
 			- (*fill_zero < 0 ? 0 : *fill_zero);
 	}
+	//printf("fill_spaces: %d\n", *fill_spaces);
+	if (format->invalid)
+		*fill_spaces -= 8;
 	if (format->prec == 0 && format->prec_check && i == 0 && format->w_check
 			&& format->width != 0)
 		norme(format, fill_spaces);

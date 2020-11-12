@@ -6,7 +6,7 @@ int main()
     //printf("Bla bla %p\n", &i);
     //ft_printf("Bla bla %p\n", &i);
 
-    printf("Bla bla %p\n", (void*)-1);
-    ft_printf("Bla bla %p\n", (void*)-1);
+    printf("sys:Bla bla %*p\n", 5, (void*)-1);
+    ft_printf("usr:Bla bla %*p\n", 5, (void*)-1);
     return (0);
 }
